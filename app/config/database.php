@@ -2,7 +2,7 @@
 return [
     'driver' => 'mysql',
     'host' => 'localhost',
-    'dbname' => 'MVC',
+    'dbname' => 'medical_center',
     'username' => 'root',
     'password' => ''
 ];
