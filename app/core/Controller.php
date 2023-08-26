@@ -4,7 +4,7 @@ namespace core;
 
 class Controller
 {
-{
+
     private string $layout = 'main';
     public function render($view, $params = [])
     {
