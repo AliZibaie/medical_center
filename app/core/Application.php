@@ -1,6 +1,6 @@
 <?php
 
-namespace app\core;
+namespace app\app\core;
 
 class Application
 {
@@ -32,6 +32,7 @@ class Application
         $this->request = new Request();
         self::$app  = $this;
         $this->response = new Response();
+        $this->controller = new Controller();
         $this->router = new Router($this->request, $this->response);
     }
 
