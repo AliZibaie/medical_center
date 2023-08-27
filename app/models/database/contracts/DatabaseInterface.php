@@ -1,4 +1,5 @@
 <?php
+namespace app\app\models\database\contracts;
 interface DatabaseInterface {
     public function __construct(MySqlDatabaseConnection $connection);
     public function table(string $table) : DatabaseInterface;
