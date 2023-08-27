@@ -1,16 +1,16 @@
 <?php
-
+namespace app\app\models\database;
 use app\app\models\database\contracts\DatabaseInterface;
-use app\app\models\database\MySqlDatabaseConnection;
+use app\app\models\database\contracts\DatabaseConnectionInterface;
 
 
 class MySqlDatabase implements DatabaseInterface {
 
-private MySqlDatabaseConnection $instance;
-private PDO $connection;
+private DatabaseConnectionInterface $instance;
+private  $connection;
 private $sql;
 
-public function __construct(MySqlDatabaseConnection|\app\app\models\database\contracts\MySqlDatabaseConnection $instance) {
+public function __construct( $instance) {
 $this->instance = $instance;
 $this->connection = $instance->getConnection();
 return $this->connection;
