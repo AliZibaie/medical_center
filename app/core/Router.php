@@ -2,6 +2,8 @@
 
 namespace app\app\core;
 
+use app\app\helper\Session;
+
 class Router
 {
     private array $routes;
@@ -44,7 +46,6 @@ class Router
             Application::getApp()->setController(new $callback[0]);
             $callback[0] = Application::getApp()->getController();
         }
-
         return call_user_func($callback);
     }
 
@@ -53,7 +54,11 @@ class Router
         $layoutContent = $this->layoutContent();
         $viewContent = $this->renderOnlyView($view, $params);
         $layoutContent = str_replace('{{title}}',$view,$layoutContent);
-        $layoutContent = str_replace('{{authentication}}',$this->renderOnlyView('managerPanel'),$layoutContent);
+        if (Session::getSession()){
+            $layoutContent = str_replace('{{authentication}}',$this->renderOnlyView('managerPanel'),$layoutContent);
+        }else{
+            $layoutContent = str_replace('{{authentication}}',$this->renderOnlyView('authentication'),$layoutContent);
+        }
         $layoutContent = str_replace("{".$view."}",'text-primary',$layoutContent);
         return str_replace('{{content}}',$viewContent,$layoutContent);
     }
