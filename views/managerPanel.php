@@ -1,5 +1,6 @@
 <!--<button type="button" class="btn">Profile</button>-->
 <div class="drawer drawer-end">
+    <form action="" method="post">
     <input id="my-drawer-4" type="checkbox" class="drawer-toggle" />
     <div class="drawer-content">
         <!-- Page content here -->
@@ -24,10 +25,9 @@
                 </a>
             </li>
             <li>
-                <form action="" method="post">
                     <button type="submit" class="text-red-900">Logout</button>
-                </form>
             </li>
         </ul>
     </div>
+    </form>
 </div>

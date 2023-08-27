@@ -4,7 +4,7 @@ namespace app\app\core;
 
 class Request
 {
-    function getPath()
+    public function getPath()
     {
         $path =  $_SERVER['REQUEST_URI'] ?? '/';
         $position = strpos($path,'?');
@@ -13,15 +13,24 @@ class Request
         }
         return substr($path, 0, $position);
     }
-    function method()
+    public function getQueryParameter()
+    {
+        $path =  $_SERVER['REQUEST_URI'] ?? '/';
+        $position = strpos($path,'?');
+        $position2 = strpos($path,'=');
+        $path  = substr($path,  ++$position);
+        $position2 = strpos($path,'=');
+        return substr($path, 0, $position2);
+    }
+    public function method()
     {
         return strtolower($_SERVER['REQUEST_METHOD']);
     }
-    function isGet()
+    public function isGet()
     {
         return $this->method() === 'get';
     }
-    function isPost()
+    public function isPost()
     {
         return $this->method() === 'post';
     }

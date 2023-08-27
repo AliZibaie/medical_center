@@ -2,12 +2,16 @@
 
 namespace app\app\core;
 
+USE app\app\models\database\MySqlDatabase;
+USE app\app\models\database\MySqlDatabaseConnection;
+
 class Application
 {
     private Router $router;
     private Request $request;
     private Response $response;
-    private Controller $controller;
+    private SiteController $controller;
+    private MySqlDatabase $database;
     private static Application $app;
     private static string $ROOT_DIR;
 
@@ -32,11 +36,10 @@ class Application
         $this->request = new Request();
         self::$app  = $this;
         $this->response = new Response();
-        $this->controller = new Controller();
+        $this->controller = new SiteController();
         $this->router = new Router($this->request, $this->response);
+        $this->database = new MySqlDatabase(MySqlDatabaseConnection::getInstance());
     }
-
-
     public function run()
     {
         echo $this->router->resolve();
@@ -65,18 +68,27 @@ class Application
         return $this->response;
     }
     /**
-     * @param Controller $controller
+     * @param SiteController $controller
      */
-    public function setController(Controller $controller): void
+    public function setController(SiteController $controller): void
     {
         $this->controller = $controller;
     }
 
     /**
-     * @return Controller
+     * @return SiteController
      */
-    public function getController(): Controller
+    public function getController(): SiteController
     {
         return $this->controller;
     }
+
+    /**
+     * @return MySqlDatabase
+     */
+    public function getDatabase(): MySqlDatabase
+    {
+        return $this->database;
+    }
+
 }

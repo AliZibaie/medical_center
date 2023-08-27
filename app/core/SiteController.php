@@ -1,8 +1,8 @@
 <?php
 
 namespace app\app\core;
-
-class Controller
+USE app\app\core\Application;
+class SiteController
 {
 
     private string $layout = 'main';

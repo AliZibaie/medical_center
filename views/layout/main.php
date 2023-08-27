@@ -1,10 +1,12 @@
 <!doctype html>
-<html>
+<html  data-theme="forest">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./dist/output.css" rel="stylesheet">
     <title>{{title}}</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@3.6.2/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
 <header class="">
@@ -30,7 +32,7 @@
     </div>
 </header>
 <main class="mb-12 mt-8"><div class="mx-auto">{{content}}</div></main>
-<footer class="footer p-10 bg-base-200 text-base-content">
+<footer class="footer p-10 bg-base-200 mt-36 text-base-content">
     <div>
         <span class="footer-title">Services</span>
         <a class="link link-hover">Branding</a>
