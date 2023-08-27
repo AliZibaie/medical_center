@@ -30,10 +30,12 @@ class Router
     {
         $path = $this->request->getPath();
         $method= $this->request->method();
+
         $callback= $this->routes[$method][$path] ?? false;
+
         if (!$callback){
             $this->response->setStatusCode(404);
-            return $this->renderView('_404');
+            return $this->renderView('404');
         }
         if (is_string($callback)){
             return $this->renderView($callback);
@@ -43,21 +45,15 @@ class Router
             $callback[0] = Application::getApp()->getController();
         }
 
-        return call_user_func($callback, $this->request);
+        return call_user_func($callback);
     }
-    public static function __callStatic(string $name, array $arguments)
-    {
-        return call_user_func($name, $arguments);
-    }
-    public  function __call(string $name, array $arguments)
-    {
-        return call_user_func($name, $arguments);
-    }
+
     public function renderView($view,  $params = []) : string
     {
         $layoutContent = $this->layoutContent();
         $viewContent = $this->renderOnlyView($view, $params);
         $layoutContent = str_replace('{{title}}',$view,$layoutContent);
+        $layoutContent = str_replace('{{authentication}}',$this->renderOnlyView('managerPanel'),$layoutContent);
         $layoutContent = str_replace("{".$view."}",'text-primary',$layoutContent);
         return str_replace('{{content}}',$viewContent,$layoutContent);
     }
@@ -68,7 +64,7 @@ class Router
         include_once Application::getROOTDIR()."/views/layout/$layout.php";
         return ob_get_clean();
     }
-    public function renderOnlyView($view, $params ) : string
+    public function renderOnlyView($view, $params=[] ) : string
     {
         foreach ($params as $key => $param){
             $$key= $param;

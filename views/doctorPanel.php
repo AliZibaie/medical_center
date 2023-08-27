@@ -10,17 +10,12 @@
         <ul class="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
             <!-- Sidebar content here -->
             <li>
-                <a href="profile" class="  rounded-box border border-4 border-red-700 text-green-800">
-                    Edit
+                <a href="profile" class="flex justify-between text-red-900  rounded-box border border-4 border-red-700">
+                    complete your profile please
                     <iconify-icon icon="grommet-icons:status-warning"></iconify-icon>
                 </a>
-                <a href="departments" class="  rounded-box border border-4 border-red-700 text-green-800">
-                    manage departments
-                </a>
-            </li>
-            <li>
-                <a href="managementStatus">
-                    manage status
+                <a href="chatroom" class="  rounded-box border border-4 border-red-700 text-green-800">
+                    chat with your colleague
                 </a>
             </li>
             <li>
