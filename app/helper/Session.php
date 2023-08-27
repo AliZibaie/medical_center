@@ -35,9 +35,12 @@ class Session
     /**
      * @return Session
      */
-    public static function getSession(): Session
+    public static function getSession(): Session|bool
     {
-        return self::$session;
+       if (isset(self::$session)){
+           return self::$session;
+       }
+       return false;
     }
 
     /**
