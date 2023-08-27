@@ -24,7 +24,7 @@ return $this->connection;
 
     public function select(array $cols = ['*']) : DatabaseInterface
     {
-        $this->sql = ' SELECT ' . implode(', ', $cols) .'FROM '. $this->sql;
+        $this->sql = ' SELECT ' . implode(', ', $cols) .' FROM '. $this->sql;
         return $this;
     }
 
@@ -50,6 +50,7 @@ return $this->connection;
     public function where(string $val1, string $val2, string $operation = '=') : DatabaseInterface
     {
         $this->sql .= ' WHERE ' . $val1 . ' ' . $operation . ' ' . $val2;
+
         return $this;
     }
 
@@ -70,6 +71,7 @@ return $this->connection;
     public function exec() : bool
     {
         return $this->connection->prepare($this->sql)->execute();
+        $this->exec();
     }
 
     public function delete() : bool
