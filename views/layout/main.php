@@ -24,9 +24,6 @@
         <div class="navbar-end">
             <form action="" method="post">
                 {{authentication}}
-
-<!--                <a href="login">Login</a>-->
-<!--                <a href="register">Register</a>-->
             </form>
         </div>
     </div>
