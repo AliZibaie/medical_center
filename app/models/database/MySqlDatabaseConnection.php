@@ -1,7 +1,9 @@
 <?php
 namespace app\app\models\database;
 USE PDO;
-class MySqlDatabaseConnection implements DatabaseConnectionInterface {
+USE app\app\models\database\contracts\DatabaseConnectionInterface;
+class MySqlDatabaseConnection implements \app\app\models\database\contracts\DatabaseConnectionInterface
+{
 
     private static $obj;
     private PDO $pdo;
@@ -28,9 +30,12 @@ class MySqlDatabaseConnection implements DatabaseConnectionInterface {
 
         return $pdo;
     }
-    public function getConnection():PDO
+    public function getConnection(): PDO
     {
-        return $this->pdo;
+        if (isset($this->pdo)){
+            return $this->pdo;
+        }
+        return $this->connect();
     }
     public static function getInstance()
     {
