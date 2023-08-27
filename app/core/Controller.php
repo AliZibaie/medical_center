@@ -1,7 +1,7 @@
 <?php
 
 namespace app\app\core;
-
+USE app\app\core\Application;
 class Controller
 {
 
