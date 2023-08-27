@@ -11,30 +11,28 @@
         </thead>
         <tbody class="">
         <tr style="width: 200px;" class="">
+            <form action="" method="post">
             <td>
                 <div class="flex items-center space-x-3 px-0 mx-0 w-16">
                     <div>
-                        <div class="font-bold ">Hart Hagerty</div>
-                        <div class="text-sm opacity-50">United States</div>
+                        <div class="font-bold " name="full-name">Hart Hagerty</div>
                     </div>
                 </div>
             </td>
             <td>
-                Zemlak, Daniel and Leannon
-                <br/>
-                <span class="badge badge-ghost badge-sm">Desktop Support Technician</span>
+                <div class="badge badge-ghost badge-sm" name="job">doctor</div>
             </td>
-            <td>Purple</td>
-            <th >
-                <form action="" method="post">
+            <td>Pending</td>
+            <th>
+
                     <button type="submit" name="reject">
                         <iconify-icon  width="26" class="text-red-800" height="26" icon="mdi:delete"></iconify-icon>
                     </button>
                     <button type="submit" name="accept">
                         <iconify-icon width="26" height="26" icon="mdi:add-bold"></iconify-icon>
                     </button>
-                </form>
             </th>
+            </form>
         </tr>
 
         </tbody>
