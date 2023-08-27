@@ -1,4 +1,5 @@
 <?php
+namespace app\app\models\database;
 class MySqlDatabaseConnection implements DatabaseConnectionInterface {
 
     private static $obj;
