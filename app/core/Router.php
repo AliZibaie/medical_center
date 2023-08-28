@@ -54,8 +54,17 @@ class Router
         $layoutContent = $this->layoutContent();
         $viewContent = $this->renderOnlyView($view, $params);
         $layoutContent = str_replace('{{title}}',$view,$layoutContent);
-        if (Session::getSession()){
-            $layoutContent = str_replace('{{authentication}}',$this->renderOnlyView('managerPanel'),$layoutContent);
+        if (isset($_SESSION['role'])){
+            if ($_SESSION['role'] == 'doctor'){
+                $layoutContent = str_replace('{{authentication}}',$this->renderOnlyView('doctorPanel'),$layoutContent);
+            }
+            if ($_SESSION['role'] == 'manager'){
+                $layoutContent = str_replace('{{authentication}}',$this->renderOnlyView('managerPanel'),$layoutContent);
+            }
+            else{
+                $layoutContent = str_replace('{{authentication}}',$this->renderOnlyView('userPanel'),$layoutContent);
+            }
+
         }else{
             $layoutContent = str_replace('{{authentication}}',$this->renderOnlyView('authentication'),$layoutContent);
         }
