@@ -54,7 +54,7 @@ class LoginController extends SiteController
                 foreach ($params as $param2) {
                     if ($param->confirmation_status == '0') {
                         $this->setLayout('auth');
-                        return $this->render('signup');
+                        return $this->render('alertStatus');
                     }
                 }
                 Session::setSession(new Session($_POST['username'], $_POST['role']));
@@ -68,6 +68,7 @@ class LoginController extends SiteController
     public function logout()
     {
         Session::destroy();
-        $this->render('register');
+        header('Refresh:0');
+        $this->show();
     }
 }
