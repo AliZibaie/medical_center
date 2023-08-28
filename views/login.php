@@ -6,12 +6,12 @@
         <!-- full name -->
         <div class="input-group flex flex-col space-y-5">
             <label for="username" class="text-2xl text-black">Username</label>
-            <input type="text" name="username2" id="username" class="border-2 border-gray-500 p-3 rounded-md text-lg focus:text-green-700 focus:outline-blue-700" placeholder="Enter your username">
+            <input type="text" name="username" id="username" class="border-2 border-gray-500 p-3 rounded-md text-lg focus:text-green-700 focus:outline-blue-700" placeholder="Enter your username">
         </div>
         <!-- password -->
         <div class="input-group flex flex-col space-y-5">
             <label for="password" class="text-2xl text-black ">Password</label>
-            <input type="password" name="password2" id="password" class="border-2 border-gray-500 p-3 rounded-md text-lg focus:text-green-700 focus:outline-blue-700" placeholder="Enter your password">
+            <input type="password" name="password" id="password" class="border-2 border-gray-500 p-3 rounded-md text-lg focus:text-green-700 focus:outline-blue-700" placeholder="Enter your password">
         </div>
         <!-- select role-->
         <div class="input-group flex flex-col space-y-5 w-full">
