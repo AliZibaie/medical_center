@@ -6,6 +6,7 @@
     <link href="./dist/output.css" rel="stylesheet">
     <title>{{title}}</title>
     <link href="https://cdn.jsdelivr.net/npm/daisyui@3.6.2/dist/full.css" rel="stylesheet" type="text/css" />
+    <link href="https://d33wubrfki0l68.cloudfront.net/css/d9b5bc0170410859ddcaea7f3c3a80e070bcbc68/build/tailwind.css" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
