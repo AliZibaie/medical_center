@@ -4,17 +4,20 @@ namespace app\app\helper;
 class Session
 {
     private static Session $session;
-    private int $userId;
+    private string $name;
+    private string $role;
 
-    public function __construct($userId)
+    public function __construct($name,$role)
     {
-        $this->userId = $userId;
+        $this->name = $name;
+        $this->role = $role;
         $this->setAuthSession();
         self::$session = $this;
     }
 
     public function setAuthSession(){
-        $_SESSION['user_id'] = $this->userId;
+        $_SESSION['name'] = $this->name;
+        $_SESSION['role'] = $this->role;
     }
 
     public static function destroy(){
