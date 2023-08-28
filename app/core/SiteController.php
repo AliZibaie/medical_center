@@ -27,4 +27,9 @@ class SiteController
         $this->layout = $layout;
     }
 
+    public function getDB(): \app\app\models\database\MySqlDatabase
+    {
+        return Application::getApp()->getDatabase();
+    }
+
 }
