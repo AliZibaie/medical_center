@@ -20,7 +20,7 @@
             </li>
             <li>
                 <form action="" method="post">
-                    <button type="submit" class="text-red-900">Logout</button>
+                    <button type="submit" class="text-red-900" name="logout">Logout</button>
                 </form>
             </li>
         </ul>
