@@ -30,14 +30,14 @@ return $this->connection;
 
     public function insert(array $fields) : DatabaseInterface
     {
-        $this->sql = ' INSERT INTO ' . $this->sql . ' (' . implode(', ', array_keys($fields)) . ') VALUES (\'' . implode('\', \'', array_values($fields)) . '\')';
+        $this->sql = ' INSERT INTO ' . $this->sql . ' (' . implode(' , ', array_keys($fields)) . ') VALUES (\'' . implode('\', \'', array_values($fields)) . '\')';
         return $this;
     }
 
     public function update(array $fields) : DatabaseInterface
     {
 
-        $this->sql = ' UPDATE' . $this->sql . ' SET  ' . implode(', ', array_keys($fields)) . ' = \'' . implode('\', \'', array_values($fields)) . '\'';
+        $this->sql = ' UPDATE ' . $this->sql . ' SET  ' . implode(' , ', array_keys($fields)) . ' = \'' . implode('\', \'', array_values($fields)) . '\'';
         return $this;
 
 
@@ -71,7 +71,7 @@ return $this->connection;
     public function exec() : bool
     {
         return $this->connection->prepare($this->sql)->execute();
-        $this->exec();
+
     }
 
     public function delete() : bool
