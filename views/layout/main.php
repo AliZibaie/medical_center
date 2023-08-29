@@ -17,9 +17,9 @@
         </div>
         <div class="navbar-center hidden lg:flex">
             <ul class="menu menu-horizontal px-1">
-                <li><a href="home">Home</a></li>
-                <li><a href="departments">Departments</a></li>
-                <li><a href="doctorList">DoctorList</a></li>
+                <li><a href="home" class="{home}">Home</a></li>
+                <li><a href="departments" class="{departments}">Departments</a></li>
+                <li><a href="doctorList" class="{doctorList}">DoctorList</a></li>
             </ul>
         </div>
         <div class="navbar-end">
