@@ -68,7 +68,7 @@ class Router
         }else{
             $layoutContent = str_replace('{{authentication}}',$this->renderOnlyView('authentication'),$layoutContent);
         }
-        $layoutContent = str_replace("{".$view."}",'text-primary',$layoutContent);
+        $layoutContent = str_replace("{".$view."}",' text-orange-600',$layoutContent);
         return str_replace('{{content}}',$viewContent,$layoutContent);
     }
     public function layoutContent(): string
