@@ -1,68 +1,115 @@
-<form method="post"  id="signupform">
-    <div class="container mx-auto my-20 space-y-5 flex flex-col justify-between px-5 py-8 rounded-2xl bg-wood hover:bg-wood2 hover:shadow-2xl border-2 border-black" style="width: 500px;">
-        <!-- header title -->
-        <div class="header flex justify-center text-3xl text-black">Register Form</div>
+<section class="gradient-form h-full bg-neutral-200 dark:bg-neutral-700">
+    <div class="container h-full p-10">
+        <div
+                class="g-6 flex h-full flex-wrap items-center justify-center text-neutral-800 dark:text-neutral-200">
+            <div class="w-full">
+                <div
+                        class="block rounded-lg bg-white shadow-lg dark:bg-neutral-800">
+                    <div class="g-0 lg:flex lg:flex-wrap">
+                        <!-- Left column container-->
+                        <div class="px-4 md:px-0 lg:w-6/12">
+                            <div class="md:mx-6 md:p-12">
+                                <!--Logo-->
+                                <div class="text-center">
+                                    <img
+                                            class="mx-auto w-48"
+                                            src="https://tecdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/lotus.webp"
+                                            alt="logo" />
+                                    <h4 class="mb-12 mt-1 pb-1 text-xl font-semibold">
+                                        We are The Lotus Team
+                                    </h4>
+                                </div>
 
-        <!-- full name -->
-        <div class="input-group flex flex-col space-y-5">
-            <label for="username" class="text-2xl text-black">Username</label>
-            <input type="text" name="username" id="username" class="border-2 border-gray-500 p-3 rounded-md text-lg focus:text-green-700 focus:outline-blue-700" placeholder="Enter your username">
-        </div>
-        <!-- password -->
-        <div class="input-group flex flex-col space-y-5">
-            <label for="password" class="text-2xl text-black ">Password</label>
-            <input type="password" name="password" id="password" class="border-2 border-gray-500 p-3 rounded-md text-lg focus:text-green-700 focus:outline-blue-700" placeholder="Enter your password">
-        </div>
-        <!-- select role-->
-        <div class="input-group flex flex-col space-y-5 w-full">
-            <select class="select select-success w-full max-w-xs"  name="role" >
-                <option  disabled selected class="text-xl text-black " >Pick your role</option>
-                <option class="text-xl text-black " value="manager">manager</option>
-                <option class="text-xl text-black " value="doctor">doctor</option>
-                <option class="text-xl text-black " value="sick">sick</option>
-            </select>
-        </div>
+                                <form method="post">
+                                    <p class="mb-4">Please Register </p>
+                                    <!--Username input-->
+                                    <div class="relative mb-4" data-te-input-wrapper-init>
+                                        <input
+                                                type="text"
+                                                class="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
+                                                id="exampleFormControlInput1"
+                                                name="username"
+                                                placeholder="Username" />
+                                        <label
+                                                for="exampleFormControlInput1"
+                                                class="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary-600 peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200 dark:peer-focus:text-primary"
+                                        >username
+                                        </label>
+                                    </div>
 
-        <!-- links -->
-        <div class="btn-group flex justify-between items-center">
-            <button type="submit" class="bg-green-700 text-white py-2 px-6 rounded-full text-xl font-normal hover:bg-green-600 cursor-pointer">Sign Up</button>
-            <div class="text-red-700 text-lg hover:text-red-500 cursor-pointer" id="login"><a href="login">already have an account? login here</a></div>
-        </div>
-        <!-- social media icons -->
-        <div class="border 2xl:border-solid border-gray-500"></div>
-        <div class="flex justify-between">
-            <div class="bg-wood border border-gray-600 rounded-xl px-5 py-1 hover:bg-wood3">
-                <iconify-icon width="36" height="36" icon="devicon:facebook"></iconify-icon>
-            </div>
-            <div class="bg-wood border border-gray-600 rounded-xl px-5 py-1 hover:bg-wood3">
-                <iconify-icon width="36" height="36" icon="flat-color-icons:google"></iconify-icon>
-            </div>
-            <div class="bg-wood border border-gray-600 rounded-xl px-5 py-1 hover:bg-wood3">
-                <iconify-icon width="36" height="36" icon="basil:apple-solid"></iconify-icon>
-            </div>
-            <div class="bg-wood border border-gray-600 rounded-xl px-5 py-1 hover:bg-wood3">
-                <iconify-icon width="36" height="36" icon="logos:whatsapp-icon"></iconify-icon>
+                                    <!--Password input-->
+                                    <div class="relative mb-4" data-te-input-wrapper-init>
+                                        <input name="password"
+                                               type="password"
+                                               class="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
+                                               id="exampleFormControlInput11"
+                                               placeholder="Password" />
+                                        <label
+                                                for="exampleFormControlInput11"
+
+                                                class="pointer-events-none absolute left-3 top-0 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary-600 peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-neutral-200
+                                                dark:peer-focus:text-primary"
+                                        >Password
+                                        </label>
+                                    </div>
+                                    <select class="select select-success w-full max-w-xs"  name="role" >
+                                        <option  disabled selected class="text-xl text-black text-red-900" >Pick your role</option>
+                                        <option class=" text-green-700 " value="manager">manager</option>
+                                        <option class=" text-green-700 " value="doctor">doctor</option>
+                                        <option class=" text-green-700 " value="sick">sick</option>
+                                    </select>
+                                    <!--Submit button-->
+                                    <div class="mb-12 pb-1 pt-1 text-center">
+                                        <button
+                                                class="mb-3 inline-block w-full rounded px-6 pb-2 pt-2.5 text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_rgba(0,0,0,0.2)] transition duration-150 ease-in-out hover:shadow-[0_8px_9px_-4px_rgba(0,0,0,0.1),0_4px_18px_0_rgba(0,0,0,0.2)] focus:shadow-[0_8px_9px_-4px_rgba(0,0,0,0.1),0_4px_18px_0_rgba(0,0,0,0.2)] focus:outline-none focus:ring-0 aactive:shadow-[0_8px_9px_-4px_rgba(0,0,0,0.1),0_4px_18px_0_rgba(0,0,0,0.2)]"
+                                                type="submit"
+                                                data-te-ripple-init
+                                                data-te-ripple-color="light"
+                                                style="
+                        background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+                      ">
+                                            Register
+                                        </button>
+
+                                        <!--Forgot password link-->
+                                        <a href="#!">Forgot password?</a>
+                                    </div>
+
+                                    <!--Register button-->
+                                    <div class="flex items-center justify-between pb-6">
+                                        <p class="mb-0 mr-2">Already  have an account?</p>
+                                        <button
+                                                type="button"
+                                                class="inline-block rounded border-2 border-danger px-6 pb-[6px] pt-2 text-xs font-medium uppercase leading-normal text-danger transition duration-150 ease-in-out hover:border-danger-600 hover:bg-neutral-500 hover:bg-opacity-10 hover:text-danger-600 focus:border-danger-600 focus:text-danger-600 focus:outline-none focus:ring-0 active:border-danger-700 active:text-danger-700 dark:hover:bg-neutral-100 dark:hover:bg-opacity-10"
+                                                data-te-ripple-init
+                                                data-te-ripple-color="light">
+                                            <a href="login"> Login</a>
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                        <!-- Right column container with background and description-->
+                        <div
+                                class="flex items-center rounded-b-lg lg:w-6/12 lg:rounded-r-lg lg:rounded-bl-none"
+                                style="background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593)">
+                            <div class="px-4 py-6 text-white md:mx-6 md:p-12">
+                                <h4 class="mb-6 text-xl font-semibold">
+                                    We are more than just a company
+                                </h4>
+                                <p class="text-sm">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing
+                                    elit, sed do eiusmod tempor incididunt ut labore et
+                                    dolore magna aliqua. Ut enim ad minim veniam, quis
+                                    nostrud exercitation ullamco laboris nisi ut aliquip ex
+                                    ea commodo consequat.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</form>
-<script>
-    tailwind.config = {
-        theme: {
-            extend: {
-                colors: {
-                    wood: '#EDD59E',
-                    subtle_gray:'#EDF1FF',
-                    wood2:'#ebd193',
-                    wood3:'#e7c87e',
-                }
-            }
-        }
-    }
-</script>
-<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
-<!--      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>-->
-<script src="../node_modules/jquery/dist/jquery.min.js"></script>
-<script src="../assets/js/login.js"></script>
-<script src='../assets/js/forms_jquery.js'>
-</script>
+</section>
