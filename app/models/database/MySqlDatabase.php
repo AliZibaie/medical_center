@@ -10,6 +10,7 @@ private DatabaseConnectionInterface $instance;
 private  $connection;
 private $sql;
 
+
 public function __construct( $instance) {
 $this->instance = $instance;
 $this->connection = $instance->getConnection();
@@ -85,6 +86,13 @@ return $this->connection;
         $this->sql .= ' COUNT(*) AS total';
         $row = $this->fetch();
         return $row['total'];
+    }
+
+    public function innerJoin($username)
+    {
+        $this->sql =  "SELECT * FROM doctor RIGHT JOIN department ON department.id = doctor.department_id WHERE department_name = '$username'";
+        return $this;
+
     }
 
 
