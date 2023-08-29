@@ -1,5 +1,5 @@
- <form action="" method="post" enctype="multipart/form-data">
-     <div class="flex justify-between items-center">
+<form action="" method="post" enctype="multipart/form-data">
+     <div class="flex justify-between items-start">
          <div class="w-1/2">
              <div class="carousel w-full">
                  <div id="item1" class="carousel-item w-full flex justify-center items-center">
@@ -22,17 +22,22 @@
                  <a href="#item4" class="btn btn-xs">4</a>
              </div>
              <div class="mx-auto flex flex-col justify-center items-center mt-12 space-y-4">
+                 <select class="select select-success w-full max-w-xs" name="department">
+                     <option disabled selected>Pick your department</option>
+                     <?php
+                     foreach ($params[0] as $department){?>
+                     <option value="<?php echo $department->department_name ?>"><?php echo $department->department_name ?></option>
+
+                     <?php }?>
+                 </select>
                  <div class=" ">
-                     <input type="text" placeholder="enter your doctor code" class="input input-bordered input-success w-80 max-w-xs" name="code">
-                 </div>
-                 <div class=" ">
-                     <input type="text" placeholder="rename" class="input input-bordered input-success w-80 max-w-xs" name="name">
+                     <input type="text" placeholder="rename" class="input input-bordered input-success w-80 max-w-xs" name="name" value="<?php echo $_SESSION['name'] ?>">
                  </div>
                  <div>
-                     <textarea class="textarea textarea-success w-80" name="experience" placeholder="tell us about your experience"></textarea>
+                     <input type="text" class="textarea textarea-success w-80" name="experience" value="<?php echo $params['experience']?>" placeholder="tell us about your experience"></input>
                  </div>
                  <div>
-                     <textarea class="textarea textarea-success w-80" name="bio" placeholder="Bio"></textarea>
+                     <input type="text" class="textarea textarea-success w-80"  value="<?php echo $params['edu']?>"  name="bio" placeholder="Bio"></input>
                  </div>
                  <div>
                      <input type="file" class="file-input file-input-bordered file-input-success w-full max-w-xs" name="profile">
@@ -47,7 +52,7 @@
 
                      <tr>
                          <th></th>
-                         <th>days of the week</th>
+                         <th class="text-green-700 ">days of the week</th>
                      </tr>
                      </thead>
                      <tbody>
@@ -114,13 +119,19 @@
 
                  </table>
              </div>
+
          </div>
      </div>
      <div class="divider my-8"></div>
      <div class="flex justify-between">
-         <button type="submit" class="btn btn-primary btn-outline flex justify-center items-center w-24 mx-auto">
-             Update
-         </button>
+         <div class="flex justify-between mx-auto space-x-3">
+             <button type="submit" class="btn btn-primary btn-outline flex justify-center items-center w-24 mx-auto">
+                 Update
+             </button>
+             <button type="submit" class="btn btn-error btn-outline flex justify-center items-center w-24 mx-auto">
+                 Delete
+             </button>
+         </div>
          <a href="home" class="btn btn-success  flex justify-center items-center w-24 mx-auto">home</a>
      </div>
  </form>
