@@ -42,10 +42,8 @@
     </table>
 </div>
 </form>
-<form action="" method="get">
     <div class="flex justify-center items-center mt-20 space-x-3.5">
-        <button type="submit" class="btn btn-outline" name="doctor">doctors</button>
-        <button type="submit" class="btn btn-outline" name="manager">managers</button>
+        <button class="btn btn-outline" name="doctor"><a href="doctors">doctors</a></button>
+        <button class="btn btn-outline" name="manager"><a href="managers">managers</a></button>
 <!--        <button type="submit" class="btn btn-outline" name="all">all</button>-->
     </div>
-</form>
