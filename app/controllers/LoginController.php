@@ -27,7 +27,7 @@ class LoginController extends SiteController
 
                 $params = $this->getDB()->table('patient')->select()->fetchAll();
                 foreach ($params as $param){
-                    if ($_POST['username'] == $param->full_name){
+                    if ($_POST['username'] == $param->full_name && $_POST['passwrod']== $param->passwrod ){
                         Session::setSession(new Session($_POST['username'], $_POST['role']));
                         return $this->render('home', $params);
                     }
