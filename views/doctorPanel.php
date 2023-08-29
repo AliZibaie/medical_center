@@ -10,13 +10,14 @@
         <ul class="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
             <!-- Sidebar content here -->
             <li>
-                <a href="profile" class="flex justify-between text-red-900  rounded-box border border-4 border-red-700">
+
+                <?php $isNeed =  \app\app\controllers\ProfileController::iconNeed();
+                    echo $isNeed
+                ? ' <a href="profile" class="flex justify-between text-red-900  rounded-box border border-4 border-red-700">
                     complete your profile please
                     <iconify-icon icon="grommet-icons:status-warning"></iconify-icon>
-                </a>
-                <a href="chatroom" class="  rounded-box border border-4 border-red-700 text-green-800">
-                    chat with your colleague
-                </a>
+                </a>' : '<a href="profile">profile</a>';
+                ?>
             </li>
             <li>
                 <form action="" method="post">
