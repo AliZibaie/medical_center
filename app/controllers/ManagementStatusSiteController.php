@@ -16,32 +16,4 @@ class ManagementStatusSiteController extends SiteController
             unset($_POST);
             return $this->render('managementStatus', $params);
     }
-
-    public function control()
-    {
-
-        if (isset($_POST['accept']) && Application::getApp()->getRequest()->getQueryParameter() == 'doctor') {
-            $id = $_POST['accept'];
-            Application::getApp()->getDatabase()->table('doctor')->update(["confirmation_status"=>1])->where('id',val2:  $id)->exec();
-            return $this->show();
-        }
-        if (isset($_POST['accept']) && array_keys($_POST)[1] == 'doctor' && isset($_POST['doctor'])) {
-            $id = $_POST['id'];
-            Application::getApp()->getDatabase()->table('doctor')->update(["confirmation_status"=>1])->where('id',val2:  $id)->exec();
-            return $this->show();
-        }
-
-        if (Application::getApp()->getRequest()->getQueryParameter() == 'doctor'){
-            return $this->show();
-        }
-        if (Application::getApp()->getRequest()->getQueryParameter() == 'manager'){
-            $params = Application::getApp()->getDatabase()->table('manager')->where('confirmation_status', val2: '0')->select()->fetchAll();
-            $params = [$params, "job" => 'manager'];
-            return $this->render('managementStatus', $params);
-        }
-        return $this->show();
-    }
-
-
-
 }
