@@ -13,4 +13,19 @@ class DepartmentsController extends  SiteController
 
         return $this->render('departments', $params);
     }
+
+    public function control()
+    {
+        if (Application::getApp()->getRequest()->isPost()){
+            if (isset($_POST['departmentDoctors'])){
+                $department_id = (int) $_POST['departmentDoctors'];
+                $query = "SELECT * FROM doctor do RIGHT JOIN department de ON de.id = do.department_id  WHERE de.id =  '$department_id'";
+                $this->getDB()->setSql($query);
+                $params = $this->getDB()->fetchAll();
+                return RelatedDoctorsController::show($params);
+            }
+        }
+        $this->show();
+    }
+
 }
