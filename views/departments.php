@@ -1,43 +1,25 @@
-<?php ?>
-<div class="overflow-x-auto w-3/4 mx-auto">
+
+<div class="overflow-x-auto w-3/4 mx-auto flex items-start">
     <table class="table table-zebra">
         <!-- head -->
         <thead>
         <tr>
-            <th></th>
-            <th>Name</th>
-            <th>Job</th>
-            <th>Favorite Color</th>
+            <th>Item</th>
+            <th>Departments</th>
         </tr>
         </thead>
         <tbody>
-        <!-- row 1 -->
-        <tr>
-            <th>1</th>
-            <td>Cy Ganderton</td>
-            <td>Quality Control Specialist</td>
-            <td>Blue</td>
-        </tr>
-        <!-- row 2 -->
-        <tr>
-            <th>2</th>
-            <td>Hart Hagerty</td>
-            <td>Desktop Support Technician</td>
-            <td>Purple</td>
-        </tr>
-        <!-- row 3 -->
-        <tr>
-            <th>3</th>
-            <td>Brice Swyre</td>
-            <td>Tax Accountant</td>
-            <td>Red</td>
-        </tr>
-        <tr>
-            <th>3</th>
-            <td>Brice Swyre</td>
-            <td>Tax Accountant</td>
-            <td>Red</td>
-        </tr>
+        <!-- rows -->
+        <?php foreach ($params as $key => $param){ ?>
+
+            <tr>
+                <th><?php echo ++$key ?></th>
+                <td><?php echo $param->department_name ?></td>
+                <td>
+                </td>
+            </tr>
+        <?php } ?>
+
         </tbody>
     </table>
 </div>
