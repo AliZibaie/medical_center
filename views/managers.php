@@ -28,6 +28,7 @@
                     <td><?php echo  $param->confirmation_status ? 'confirmed' : 'pending' ?></td>
 
                     <th>
+                        <input type="hidden" value="<?php echo $param->id ?> ?>">
                         <button type="submit" name="reject">
                             <iconify-icon  width="26" class="text-red-800" height="26" icon="mdi:delete"></iconify-icon>
                         </button>
