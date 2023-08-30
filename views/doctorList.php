@@ -43,20 +43,22 @@
             </tbody>
         </table>
     </div>
+    <form action="" method="post">
     <div class="join w-1/4">
         <div>
             <div>
-                <input class="input input-bordered join-item" placeholder="Search"/>
+                <input class="input input-bordered join-item" placeholder="Search" name="search">
             </div>
         </div>
-        <select class="select select-bordered join-item w-24">
+        <select class="select select-bordered join-item w-24" name="filter">
             <option disabled selected>Filter</option>
-            <option>Ascending</option>
-            <option>Descending</option>
-            <option>All</option>
+            <option value="asc">Ascending</option>
+            <option value="desc">Descending</option>
+            <option value="all">All</option>
         </select>
         <div class="indicator">
-            <button class="btn btn-primary join-item">Search</button>
+            <button class="btn btn-accent btn-outline join-item" type="submit">Search</button>
         </div>
     </div>
+    </form>
 </div>
