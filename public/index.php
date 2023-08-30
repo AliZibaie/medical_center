@@ -5,6 +5,7 @@ require_once __DIR__ . "/../vendor/autoload.php";
 use app\app\controllers\DoctorController;
 use app\app\controllers\DoctorsListController;
 use app\app\controllers\LoginController;
+use app\app\controllers\ManageDepartmentController;
 use app\app\controllers\ManagementStatusSiteController;
 use app\app\controllers\managersListController;
 use app\app\controllers\ProfileController;
@@ -40,6 +41,8 @@ $app->getRouter()->post('/profile',[ProfileController::class,'show']);
 $app->getRouter()->get('/doctorList',[DoctorController::class,'show']);
 $app->getRouter()->get('/doctors',[DoctorsListController::class,'show']);
 $app->getRouter()->get('/managers',[ManagersListController::class,'show']);
+$app->getRouter()->get('/manageDepartments',[ManageDepartmentController::class,'show']);
+$app->getRouter()->post('/manageDepartments',[ManageDepartmentController::class,'control']);
 //$app->getRouter()->post('/alertStatus',[LoginController::class,'show']);
 //$app->getRouter()->get('/signup','signup');
 
