@@ -9,6 +9,22 @@ class MySqlDatabase implements DatabaseInterface {
 private DatabaseConnectionInterface $instance;
 private  $connection;
 private $sql;
+
+    /**
+     * @return mixed
+     */
+    public function getSql()
+    {
+        return $this->sql;
+    }
+
+    /**
+     * @param mixed $sql
+     */
+    public function setSql($sql): void
+    {
+        $this->sql = $sql;
+    }
 private $where;
 
     /**
