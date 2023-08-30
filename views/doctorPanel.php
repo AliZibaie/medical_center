@@ -10,7 +10,6 @@
         <ul class="menu p-4 w-80 min-h-full bg-base-200 text-base-content">
             <!-- Sidebar content here -->
             <li>
-
                 <?php $isNeed =  \app\app\controllers\ProfileController::iconNeed();
                     echo $isNeed
                 ? ' <a href="profile" class="flex justify-between text-red-900  rounded-box border border-4 border-red-700">
