@@ -25,25 +25,33 @@ $app->getRouter()->get('/','home');
 $app->getRouter()->get('/managerPanel','managerPanel');
 
 $app->getRouter()->get('/managementStatus','managementStatus');
-$app->getRouter()->get('/profile',[ProfileController::class,'show']);
+
 $app->getRouter()->post('/managementStatus',[ManagementStatusSiteController::class, 'control']);
 $app->getRouter()->get('/managementStatus',[ManagementStatusSiteController::class, 'show']);
+
 $app->getRouter()->get('/signup',[RegisterController::class,'show']);
 $app->getRouter()->post('/signup',[RegisterController::class,'show']);
+
 $app->getRouter()->get('/login',[LoginController::class,'show']);
 $app->getRouter()->post('/login',[LoginController::class,'show']);
+
 $app->getRouter()->post('/home',[LoginController::class,'logout']);
 $app->getRouter()->post('/departments',[LoginController::class,'logout']);
+
 $app->getRouter()->get('/departments',[DepartmentsController::class,'show']);
 
 $app->getRouter()->post('/profile',[ProfileController::class,'show']);
-
+$app->getRouter()->get('/profile',[ProfileController::class,'show']);
 
 $app->getRouter()->get('/doctorList',[DoctorController::class,'show']);
+$app->getRouter()->post('/doctorList',[DoctorController::class,'control']);
+
 $app->getRouter()->get('/doctors',[DoctorsListController::class,'show']);
 $app->getRouter()->post('/doctors',[DoctorsListController::class,'control']);
+
 $app->getRouter()->get('/managers',[ManagersListController::class,'show']);
 $app->getRouter()->post('/managers',[ManagersListController::class,'control']);
+
 $app->getRouter()->get('/manageDepartments',[ManageDepartmentController::class,'show']);
 $app->getRouter()->post('/manageDepartments',[ManageDepartmentController::class,'control']);
 
