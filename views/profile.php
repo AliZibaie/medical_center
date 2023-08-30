@@ -2,25 +2,19 @@
      <div class="flex justify-between items-start">
          <div class="w-1/2">
              <div class="carousel w-full">
-                 <div id="item1" class="carousel-item w-full flex justify-center items-center">
-                     <img src="/asset/img/01-Nightingale-DaneMarket-min.jpg" class="w-96" />
+                 <?php foreach ($params['profiles'] as $key =>  $param){ ?>
+                 <div id="item<?php echo $param->id ?>" class="carousel-item w-full flex justify-center items-center">
+                     <img src="<?php echo $param->source_path ?>" class="w-48 mx-auto" />
                  </div>
-                 <div id="item2" class="carousel-item w-full  flex justify-center items-center">
-                     <img src="/asset/img/01-Nightingale-DaneMarket-min.jpg" class="w-96 " />
-                 </div>
-                 <div id="item3" class="carousel-item w-full  flex justify-center items-center">
-                     <img src="/asset/img/01-Nightingale-DaneMarket-min.jpg" class="w-96 " />
-                 </div>
-                 <div id="item4" class="carousel-item w-full  flex justify-center items-center">
-                     <img src="/asset/img/01-Nightingale-DaneMarket-min.jpg" class="w-96 " />
-                 </div>
+                 <?php } ?>
              </div>
+
              <div class="flex justify-center w-full py-2 gap-2">
-                 <a href="#item1" class="btn btn-xs">1</a>
-                 <a href="#item2" class="btn btn-xs">2</a>
-                 <a href="#item3" class="btn btn-xs">3</a>
-                 <a href="#item4" class="btn btn-xs">4</a>
+                 <?php foreach ($params['profiles'] as $key =>  $param){ ?>
+                 <a href="#item<?php echo $param->id ?>" class="btn btn-xs"><?php echo ++$key ?></a>
+                 <?php } ?>
              </div>
+
              <div class="mx-auto flex flex-col justify-center items-center mt-12 space-y-4">
                  <select class="select select-success w-full max-w-xs" name="department">
                      <option disabled selected>Pick your department</option>
