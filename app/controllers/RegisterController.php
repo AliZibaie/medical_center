@@ -18,19 +18,25 @@ class RegisterController extends SiteController
         if (Application::getApp()->getRequest()->isPost()){
             if ($_POST['role'] == 'doctor'){
                 $params = $this->getDB()->table('doctor')->select()->fetchAll();
+                $newUser = ['full_name'=>$_POST['username'],'password'=>$_POST['password'] ];
                 if ($this->check($params)){
+                    $this->getDB()->table('doctor')->insert($newUser)->exec();
                     return  $this->render('login');
                 }
             }
             if ($_POST['role'] == 'manager'){
                 $params = $this->getDB()->table('manager')->select()->fetchAll();
+                $newUser = ['full_name'=>$_POST['username'],'password'=>$_POST['password'] ];
                 if ($this->check($params)){
+                    $this->getDB()->table('manager')->insert($newUser)->exec();
                     return  $this->render('login');
                 }
             }
             if ($_POST['role'] == 'sick'){
                 $params = $this->getDB()->table('patient')->select()->fetchAll();
+                $newUser = ['full_name'=>$_POST['username'],'password'=>$_POST['password'] ];
                 if ($this->check($params)){
+                    $this->getDB()->table('patient')->insert($newUser)->exec();
                     return  $this->render('login');
                 }
             }
