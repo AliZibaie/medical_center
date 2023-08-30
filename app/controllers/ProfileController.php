@@ -25,6 +25,11 @@ class ProfileController extends SiteController
 
     }
 
+    public function getProfiles($id)
+    {
+        return  $this->getDB()->table('doctors_profile')->where(' doctor_id ', $id)->select()->fetchAll();
+    }
+
     public function show()
     {
         if (Application::getApp()->getRequest()->isPost()){
@@ -80,12 +85,15 @@ class ProfileController extends SiteController
 //                Application::getApp()->getDatabase()->table('doctors_profile')->update(['source_path'=>$profileSrc])->where(' doctor_id ','\''.$id[0]->id.'\'')->exec();
             }
         }
+        $id = $this->getDB()->table('doctor')->select(['id'])->where(' full_name ','\''.$_SESSION['name'].'\'')->fetchAll();
+        $id = $id[0]->id;
         $educational_info = $this->getDoctorInfo()[0]->educational_info;
         $department_id = $this->getDoctorInfo()[0]->department_id;
         $experience = $this->getDoctorInfo()[0]->experience;
         $work_day = $this->getDoctorInfo()[0]->work_day;
         $work_day  = explode(',', $work_day);
-        $params = [ $this->getDepartmentInfo(), "edu"=>$educational_info, 'department'=>$department_id,'experience'=>$experience,'days'=>$work_day];
+        $params = [ $this->getDepartmentInfo(), "edu"=>$educational_info, 'department'=>$department_id,'experience'=>$experience,'days'=>$work_day, 'profiles'=>$this->getProfiles($id)];
+
         $this->setLayout('auth');
         return $this->render('profile',$params);
     }
