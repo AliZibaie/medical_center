@@ -9,6 +9,23 @@ class MySqlDatabase implements DatabaseInterface {
 private DatabaseConnectionInterface $instance;
 private  $connection;
 private $sql;
+private $where;
+
+    /**
+     * @return mixed
+     */
+    public function getWhere()
+    {
+        return $this->where;
+    }
+
+    /**
+     * @param mixed $where
+     */
+    public function setWhere($where): void
+    {
+        $this->where = $where;
+    }
 
 
 public function __construct( $instance) {
@@ -48,10 +65,10 @@ return $this->connection;
 //        return $this;
     }
 
-    public function where(string $val1, string $val2, string $operation = '=') : DatabaseInterface
+    public function where(string $val1, string | int $val2, string $operation = '=') : DatabaseInterface
     {
         $this->sql .= ' WHERE ' . $val1 . ' ' . $operation . ' ' . $val2;
-
+        $this->setWhere(' WHERE ' . $val1 . ' ' . $operation . ' ' . $val2);
         return $this;
     }
 
@@ -71,14 +88,15 @@ return $this->connection;
 
     public function exec() : bool
     {
+
         return $this->connection->prepare($this->sql)->execute();
+
 
     }
 
-    public function delete() : bool
+    public function delete() : DatabaseInterface | string
     {
-        $this->sql .= ' DELETE FROM ' . $this->table;
-        return $this->exec();
+        return $this->connection->prepare( ' DELETE FROM '. $this->sql)->execute();
     }
 
     public function count() : int

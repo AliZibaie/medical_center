@@ -4,7 +4,7 @@
     <input id="my-drawer-4" type="checkbox" class="drawer-toggle" />
     <div class="drawer-content">
         <!-- Page content here -->
-        <label for="my-drawer-4" class="drawer-button btn btn-primary">Profile</label>
+        <label for="my-drawer-4" class="drawer-button btn btn-primary"><?php echo $_SESSION['name'] ?></label>
     </div>
     <div class="drawer-side">
         <label for="my-drawer-4" class="drawer-overlay"></label>
@@ -12,6 +12,11 @@
             <li>
                 <a href="doctors">
                     manage status
+                </a>
+            </li>
+            <li>
+                <a href="manageDepartments">
+                    manage departments
                 </a>
             </li>
             <li>
