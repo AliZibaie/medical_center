@@ -10,9 +10,11 @@ use app\app\controllers\ManageDepartmentController;
 use app\app\controllers\ManagementStatusSiteController;
 use app\app\controllers\managersListController;
 use app\app\controllers\ProfileController;
+use app\app\controllers\RelatedDoctorsController;
 USE app\app\core\Application;
 
 use  app\app\controllers\RegisterController;
+use app\app\core\Request;
 
 
 $app = new Application(dirname(__DIR__));
@@ -38,7 +40,13 @@ $app->getRouter()->post('/login',[LoginController::class,'show']);
 $app->getRouter()->post('/home',[LoginController::class,'logout']);
 $app->getRouter()->post('/departments',[LoginController::class,'logout']);
 
+//$app->getRouter()->get('/relatedDoctors',[RelatedDoctorsController::class,'show']);
+
 $app->getRouter()->get('/departments',[DepartmentsController::class,'show']);
+$app->getRouter()->post('/departments',[DepartmentsController::class,'control']);
+
+
+
 
 $app->getRouter()->post('/profile',[ProfileController::class,'show']);
 $app->getRouter()->get('/profile',[ProfileController::class,'show']);
@@ -54,6 +62,7 @@ $app->getRouter()->post('/managers',[ManagersListController::class,'control']);
 
 $app->getRouter()->get('/manageDepartments',[ManageDepartmentController::class,'show']);
 $app->getRouter()->post('/manageDepartments',[ManageDepartmentController::class,'control']);
+
 
 
 
