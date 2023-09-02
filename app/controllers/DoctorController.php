@@ -56,6 +56,13 @@ class DoctorController extends  SiteController
                 $info = $this->getDB()->fetchAll();
                 return $this->render('doctorList',$info);
             }
+            if (isset($_POST['doctors-profile'])){
+                $id = ($_POST['doctors-profile']);
+                $query = "SELECT * FROM doctor WHERE  confirmation_status = 1 AND id = $id";
+                $this->getDB()->setSql($query);
+                $info = $this->getDB()->fetchAll();
+                return $this->render('doctorList',$info);
+            }
             $query = "SELECT * FROM doctor WHERE  confirmation_status = 1 ";
             $this->getDB()->setSql($query);
             $info = $this->getDB()->fetchAll();
