@@ -1,3 +1,4 @@
+
 <div class="flex justify-evenly items-start">
     <div class="overflow-x-auto flex w-1/2 justify-between">
         <table class="table ">
@@ -5,9 +6,8 @@
             <thead>
             <tr>
                 <th class="" style="width: 200px;">Full name</th>
-                <th class="" style="width: 200px;">Expertise</th>
-                <th>Experience</th>
                 <th class="" style="width: 200px;">Day</th>
+                <th class="" style="width: 200px;">Expertise</th>
                 <th class="" style="width: 200px;">Rating</th>
                 <th class="" style="width: 200px;">Profile</th>
             </tr>
@@ -27,7 +27,7 @@
                     <td>
                         <div class="" name="expert"><?php echo $param->educational_info ?></div>
                     </td>
-                    <td><?php echo  $param->experience ?></td>
+                    <td><?php echo  $param->expertise ?></td>
                     <th> <?php echo  $param->work_day ?></th>
                     <th>
                         <div class="rating">
