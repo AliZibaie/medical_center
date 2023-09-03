@@ -16,7 +16,35 @@ class RegisterController extends SiteController
     public function show()
     {
         if (Application::getApp()->getRequest()->isPost()){
-            if ($_POST['role'] == 'doctor'){
+            $body = Application::getApp()->getRequest()->getBody();
+
+
+            $dataToValidate = ['username' => $body['username'] , 'password' => $body['password'],  'role' => $body['role']  ];
+
+            $rules = [
+                'username' => ['required', 'min:5','max:10'],
+                'password' => 'required|min:10',
+                'role' => 'required'
+            ];
+
+            $messages = [
+                'required' => 'The :attribute field is required.',
+                'min' => 'the min length for :attribute is :min',
+                'max' => 'the min length for :attribute is :max,'
+            ];
+
+            $validator = getValidator($dataToValidate, $rules, $messages);
+
+
+            if ($validator->fails()) {
+                $errors = $validator->errors();
+                $showMessages = [];
+                foreach ($errors->all() as $message) {
+                    $showMessages[]=   "<p class='text-red-500 italic'>$message</p>";
+                }
+            }
+
+            if ($_POST['role'] == 'doctor' && !$errors){
                 $params = $this->getDB()->table('doctor')->select()->fetchAll();
                 $newUser = ['full_name'=>$_POST['username'],'password'=>$_POST['password'] ];
                 if ($this->check($params)){
@@ -24,7 +52,7 @@ class RegisterController extends SiteController
                     return  $this->render('login');
                 }
             }
-            if ($_POST['role'] == 'manager'){
+            if ($_POST['role'] == 'manager' && !$errors){
                 $params = $this->getDB()->table('manager')->select()->fetchAll();
                 $newUser = ['full_name'=>$_POST['username'],'password'=>$_POST['password'] ];
                 if ($this->check($params)){
@@ -32,7 +60,7 @@ class RegisterController extends SiteController
                     return  $this->render('login');
                 }
             }
-            if ($_POST['role'] == 'sick'){
+            if ($_POST['role'] == 'sick' && !$errors){
                 $params = $this->getDB()->table('patient')->select()->fetchAll();
                 $newUser = ['full_name'=>$_POST['username'],'password'=>$_POST['password'] ];
                 if ($this->check($params)){
@@ -40,20 +68,7 @@ class RegisterController extends SiteController
                     return  $this->render('login');
                 }
             }
-//            if ($_POST['role'] == 'sick'){
-//
-//                $params = $this->getDB()->table('patient')->select()->fetchAll();
-//                foreach ($params as $param){
-//                    if ($_POST['username'] == $param->full_name && $_POST['passwrod']== $param->passwrod ){
-//                        Session::setSession(new Session($_POST['username'], $_POST['role']));
-//                        return $this->render('home', $params);
-//                    }
-//                }
-//                $this->setLayout('auth');
-//                return $this->render('signup');
-//
-//            }
-            return $this->render('signup');
+            return $this->render('signup', $showMessages);
         }
         $this->setLayout('auth');
         return $this->render('signup');
