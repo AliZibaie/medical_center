@@ -4,19 +4,17 @@ namespace app\app\controllers;
 
 use app\app\core\Application;
 use app\app\core\SiteController;
+use app\app\ORM\models\Doctor;
 
 class DoctorController extends  SiteController
 {
-    public function getDoctors()
-    {
-        return  $this->getDB()->table('doctor')->where(' confirmation_status ','\''.'1'.'\'')->select()->fetchAll();
-    }
 
     public function show()
     {
 
+        $params = Doctor::showStatus1();;
         $this->setLayout('main');
-        return $this->render('doctorList',$this->getDoctors());
+        return $this->render('doctorList',$params);
     }
 
     public function control()
@@ -61,7 +59,7 @@ class DoctorController extends  SiteController
                 $query = "SELECT * FROM doctor WHERE  confirmation_status = 1 AND id = $id";
                 $this->getDB()->setSql($query);
                 $info = $this->getDB()->fetchAll();
-                return $this->render('doctorList',$info);
+                return $this->render('doctorProfileOne',$info);
             }
             $query = "SELECT * FROM doctor WHERE  confirmation_status = 1 ";
             $this->getDB()->setSql($query);
