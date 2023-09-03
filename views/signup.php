@@ -22,11 +22,16 @@
 
                                 <form method="post">
                                     <p class="mb-4">Please Register </p>
+                                    <?php
+                                    foreach ($params as $message){
+                                        echo $message ?? '';
+                                    }
+                                    ?>
                                     <!--Username input-->
                                     <div class="relative mb-4" data-te-input-wrapper-init>
                                         <input
                                                 type="text"
-                                                class="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
+                                                class=" peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:placeholder:text-neutral-200 [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
                                                 id="exampleFormControlInput1"
                                                 name="username"
                                                 placeholder="Username" />
