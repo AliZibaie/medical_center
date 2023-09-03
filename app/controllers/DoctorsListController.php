@@ -4,15 +4,14 @@ namespace app\app\controllers;
 
 use app\app\core\Application;
 use app\app\core\SiteController;
+use app\app\ORM\models\Doctor;
 
 class DoctorsListController extends  SiteController
 {
 
     public function show(): string
     {
-
-
-        $params = Application::getApp()->getDatabase()->table('doctor')->where('confirmation_status', val2: '0')->select()->fetchAll();
+        $params = Doctor::showStatus0();
         $params = [$params, "job" => 'doctor'];
         unset($_POST);
         return $this->render('managementStatus', $params);
